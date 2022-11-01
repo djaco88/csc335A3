@@ -1,3 +1,6 @@
+/* Author:
+ * Purpose:
+ */
 package csc335A3;
 
 public class TankModel {
