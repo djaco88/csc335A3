@@ -13,9 +13,11 @@ public class XTankUI
 {
 	// The location and direction of the "tank"
 	private int x = 300;
-	private int y = 500;
-	private int directionX = 0;
-	private int directionY = -10;
+	private int y = 500; 
+	private int directionRight = 10;
+	private int directionLeft = -10;
+	private int directionUp = -10;
+	private int directionDown = 10;
 
 	private Canvas canvas;
 	private Display display;
@@ -58,12 +60,30 @@ public class XTankUI
 
 		canvas.addKeyListener(new KeyListener() {
 			public void keyPressed(KeyEvent e) {
-				//System.out.println("key " + e.character);
+				System.out.println("key " + e.character);
 				// update tank location
-				x += directionX;
-				y += directionY;
+				switch(e.keyCode) {
+				case SWT.ARROW_DOWN:{
+					y += directionDown;
+				}
+				case SWT.ARROW_UP:{
+					y += directionUp;
+				}
+				case SWT.ARROW_LEFT:{
+					x += directionLeft;
+				}
+				case SWT.ARROW_RIGHT:{
+					x += directionRight;
+				}
+				default: {
+					
+				}
+				}
+				//x += directionX;
+				//y += directionY;
 				try {
 					out.writeInt(y);
+					out.writeInt(x);
 				}
 				catch(IOException ex) {
 					System.out.println("The server did not respond (write KL).");
@@ -76,6 +96,7 @@ public class XTankUI
 
 		try {
 			out.writeInt(y);
+			out.writeInt(x);
 		}
 		catch(IOException ex) {
 			System.out.println("The server did not respond (initial write).");
@@ -98,6 +119,7 @@ public class XTankUI
 				if (in.available() > 0)
 				{
 					y = in.readInt();
+					x = in.readInt();
 					//System.out.println("y = " + y);
 					canvas.redraw();
 				}
