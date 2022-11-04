@@ -49,18 +49,18 @@ public class XTankServer
             	DataOutputStream out = new DataOutputStream(socket.getOutputStream());
                 sq.add(out);
                 int ycoord;
-                int xcoord;
+                //int xcoord;
                 while (true)
                 {
                 	ycoord = in.readInt();
-                	xcoord = in.readInt();
+                	//xcoord = in.readInt();
                 	System.out.println("ycoord = " + ycoord);
-                	System.out.println(" xcoord" + xcoord);
+                	//System.out.println(" xcoord" + xcoord);
                 	for (DataOutputStream o: sq)
                 	{
                     	System.out.println("o = " + o);
     					o.writeInt(ycoord);
-    					o.writeInt(xcoord);
+    					//o.writeInt(xcoord);
                 	}
                 }
             } 

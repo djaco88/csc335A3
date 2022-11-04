@@ -14,10 +14,6 @@ public class XTankUI
 	// The location and direction of the "tank"
 	private int x = 300;
 	private int y = 500; 
-	private int directionRight = 10;
-	private int directionLeft = -10;
-	private int directionUp = -10;
-	private int directionDown = 10;
 
 	private Canvas canvas;
 	private Display display;
@@ -37,17 +33,21 @@ public class XTankUI
 		Shell shell = new Shell(display);
 		shell.setText("xtank");
 		shell.setLayout(new FillLayout());
-
 		canvas = new Canvas(shell, SWT.NO_BACKGROUND);
 
+		//Create the tank coords
+		TankMovement tankMove = new TankMovement(x, y, canvas, shell);
+		
+		//Tank
 		canvas.addPaintListener(event -> {
 			event.gc.fillRectangle(canvas.getBounds());
 			event.gc.setBackground(shell.getDisplay().getSystemColor(SWT.COLOR_DARK_GREEN));
-			event.gc.fillRectangle(x, y, 50, 100);
+			event.gc.fillRectangle(tankMove.getX(), tankMove.getY(), 50, 100);
 			event.gc.setBackground(shell.getDisplay().getSystemColor(SWT.COLOR_BLACK));
-			event.gc.fillOval(x, y+25, 50, 50);
+			event.gc.fillOval(tankMove.getX(), tankMove.getY()+25, 50, 50);
 			event.gc.setLineWidth(4);
-			event.gc.drawLine(x+25, y+25, x+25, y-15);
+			event.gc.drawLine(tankMove.getX()+25, tankMove.getY()+25, tankMove.getX()+25, tankMove.getY()-15);
+			
 		});	
 
 		canvas.addMouseListener(new MouseListener() {
@@ -58,32 +58,17 @@ public class XTankUI
 			public void mouseDoubleClick(MouseEvent e) {} 
 		});
 
+		//Move Up, Down, Left, Right
 		canvas.addKeyListener(new KeyListener() {
 			public void keyPressed(KeyEvent e) {
-				System.out.println("key " + e.character);
+				//System.out.println("key " + e.character);
 				// update tank location
-				switch(e.keyCode) {
-				case SWT.ARROW_DOWN:{
-					y += directionDown;
-				}
-				case SWT.ARROW_UP:{
-					y += directionUp;
-				}
-				case SWT.ARROW_LEFT:{
-					x += directionLeft;
-				}
-				case SWT.ARROW_RIGHT:{
-					x += directionRight;
-				}
-				default: {
-					
-				}
-				}
-				//x += directionX;
-				//y += directionY;
+				
+				tankMove.action(e);
+				
 				try {
-					out.writeInt(y);
-					out.writeInt(x);
+					out.writeInt(tankMove.getY());
+					//out.writeInt(x);
 				}
 				catch(IOException ex) {
 					System.out.println("The server did not respond (write KL).");
@@ -95,8 +80,8 @@ public class XTankUI
 		});
 
 		try {
-			out.writeInt(y);
-			out.writeInt(x);
+			out.writeInt(tankMove.getY());
+			//out.writeInt(x);
 		}
 		catch(IOException ex) {
 			System.out.println("The server did not respond (initial write).");
@@ -119,7 +104,7 @@ public class XTankUI
 				if (in.available() > 0)
 				{
 					y = in.readInt();
-					x = in.readInt();
+					//x = in.readInt();
 					//System.out.println("y = " + y);
 					canvas.redraw();
 				}

@@ -3,6 +3,8 @@
  */
 package csc335A3;
 
+import org.eclipse.swt.SWT;
+
 public class Tank {
 	
 	private String userName;
@@ -61,5 +63,19 @@ public class Tank {
 		return coors;
 	}
 	// TODO: implement a function to change all coordinates by a set value
-
+	
+	//Tank
+	/*  Davids Tank Creating Function
+	    canvas.addPaintListener(event -> {
+		event.gc.fillRectangle(canvas.getBounds());
+		event.gc.setBackground(shell.getDisplay().getSystemColor(SWT.COLOR_DARK_GREEN));
+		event.gc.fillRectangle(x, y, 50, 100);
+		event.gc.setBackground(shell.getDisplay().getSystemColor(SWT.COLOR_BLACK));
+		event.gc.fillOval(x, y+25, 50, 50);
+		event.gc.setLineWidth(4);
+		event.gc.drawLine(x+25, y+25, x+25, y-15);
+	*/
+		
+	
+	
 }
