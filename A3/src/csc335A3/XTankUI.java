@@ -63,6 +63,21 @@ public class XTankUI
 			public void keyPressed(KeyEvent e) {
 				//System.out.println("key " + e.character);
 				// update tank location
+				canvas.addPaintListener(event -> {
+					//event.gc.setBackground(shell.getDisplay().getSystemColor(SWT.COLOR_RED));
+					//event.gc.fillRectangle(tankMove.getX(), tankMove.getY(), 50, 100);
+					//event.gc.setBackground(shell.getDisplay().getSystemColor(SWT.COLOR_BLACK));
+					//event.gc.fillOval(tankMove.getX(), tankMove.getY()+25, 50, 50);
+					//event.gc.setLineWidth(4);
+					//event.gc.drawLine(tankMove.getX()+25, tankMove.getY()+25, tankMove.getX()+25, tankMove.getY()-15);
+					//event.gc.setLineWidth(1);
+					event.gc.fillOval(tankMove.getX()-5, tankMove.getY()-5, tankMove.getX()+5, tankMove.getY()+5);
+					//event.gc.setForeground(Display.getCurrent().getSystemColor(SWT.COLOR_RED));
+					event.gc.drawOval(tankMove.getX()-5,tankMove.getY()-5,tankMove.getX()+5,tankMove.getY()+5);
+				});	
+				if(e.keyCode == SWT.SPACE) { //Fire 
+					
+				}
 				
 				tankMove.action(e);
 				
@@ -76,7 +91,7 @@ public class XTankUI
 
 				canvas.redraw();
 			}
-			public void keyReleased(KeyEvent e) {}
+			public void keyReleased(KeyEvent e) {} 
 		});
 
 		try {
