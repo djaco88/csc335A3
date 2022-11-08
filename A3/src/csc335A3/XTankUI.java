@@ -65,16 +65,47 @@ public class XTankUI
 				// update tank location
 				Missle missle = new Missle(tankMove.getX(), tankMove.getY());	
 				if(e.keyCode == SWT.SPACE) { //Fire 
-					for(;missle.getY() > 0 ;) {
-						if(tankMove.getDirection() == "up") {
-							canvas.addPaintListener(event -> {
-								event.gc.fillOval(missle.getX(), missle.getY(), 5, 5);
-								event.gc.drawOval(missle.getX(),missle.getY(),5,5);
-							});	
-							missle.shootUp();		
-						}
+					if(tankMove.getDirection() == "up") {
+						for(;missle.getY() > 0 ;) {
+								canvas.addPaintListener(event -> {
+									event.gc.fillOval(missle.getX(), missle.getY(), 5, 5);
+									event.gc.drawOval(missle.getX(),missle.getY(),5,5);
+								});	
+								missle.shootUp();		
 						//canvas.redraw();
+						}
 					}
+					else if(tankMove.getDirection() == "down") {
+						for(;missle.getY() < 550 ;) {
+								canvas.addPaintListener(event -> {
+									event.gc.fillOval(missle.getX(), missle.getY(), 5, 5);
+									event.gc.drawOval(missle.getX(),missle.getY(),5,5);
+								});	
+								missle.shootDown();		
+						//canvas.redraw();
+						}
+					}
+					else if(tankMove.getDirection() == "right") {
+						for(;missle.getX() < 800 ;) {
+								canvas.addPaintListener(event -> {
+									event.gc.fillOval(missle.getX(), missle.getY(), 5, 5);
+									event.gc.drawOval(missle.getX(),missle.getY(),5,5);
+								});	
+								missle.shootRight();		
+						//canvas.redraw();
+						}
+					}
+					else if(tankMove.getDirection() == "left") {
+						for(;missle.getX() > 0 ;) {
+								canvas.addPaintListener(event -> {
+									event.gc.fillOval(missle.getX(), missle.getY(), 5, 5);
+									event.gc.drawOval(missle.getX(),missle.getY(),5,5);
+								});	
+								missle.shootLeft();		
+						//canvas.redraw();
+						}
+					}
+					
 				}
 				else {
 					tankMove.action(e);
