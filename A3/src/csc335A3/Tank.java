@@ -12,12 +12,6 @@ public class Tank {
 	// coords
 	private int x;
 	private int y;
-	//upper Left and Right coordinates
-	//private int[] uRCoor;
-	//private int[] uLCoor;
-	//lower Left and Right coordinates
-	//private int[] lRCoor;
-	//private int[] lLCoor;
 	// hitpoints/armor
 	private int hP;
 	private String orientation;
@@ -29,11 +23,6 @@ public class Tank {
 		this.userName = user;
 		this.x = x;
 		this.y = y;
-		//
-		// this.uLCoor = uL;
-		// this.uRCoor = uR;
-		// this.lRCoor = lR;
-		// this.lLCoor = lL;
 		//start with up orientation
 		this.orientation = "up";
 	}
@@ -65,18 +54,6 @@ public class Tank {
 		int[] coors = {this.x,this.y};
 		return coors;
 	}
-	/*
-	// may want to take in an int[][] instead of four int[]
-	public void setCoors(int[] uL, int[] uR, int[] lR, int[] lL) {
-		this.uLCoor = uL;
-		this.uRCoor = uR;
-		this.lRCoor = lR;
-		this.lLCoor = lL;
-	}
-	public int[][] getCoors(){
-		int[][] coors = {this.uRCoor,this.uLCoor,this.lRCoor,this.lLCoor};
-		return coors;
-	}*/
 	// TODO: implement a function to change all coordinates by a set value
 	
 	//Tank
