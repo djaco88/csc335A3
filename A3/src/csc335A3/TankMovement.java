@@ -38,6 +38,10 @@ public class TankMovement {
 		this.y = y;
 	}
 	
+	String getDirection() {
+		return rotation;
+	}
+	
 	void action(KeyEvent e){
 		switch(e.keyCode) {
 		case SWT.ARROW_DOWN:{

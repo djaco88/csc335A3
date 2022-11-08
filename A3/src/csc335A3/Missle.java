@@ -9,15 +9,29 @@ public class Missle {
 	private int x;
 	private int y;
 	
-	Missle(int x, int y, String direction){
+	Missle(int x, int y){
 		this.x = x;
 		this.y = y;
-		if(direction == "up") {
-			shootUp();
-		}
+
+	}
+	
+	int getX() {
+		return x;
+	}
+	
+	int getY() {
+		return y;
+	}
+	
+	void setX(int x) {
+		this.x = x;
+	}
+	
+	void setY(int y) {
+		this.y = y;
 	}
 	
 	void shootUp() {
-		//for(int i = y; )
+		y -= 20;
 	}
 }
