@@ -33,8 +33,9 @@ public class XTankUI
 		Shell shell = new Shell(display);
 		shell.setText("xtank");
 		shell.setLayout(new FillLayout());
+		shell.setSize(1000,800);
 		canvas = new Canvas(shell, SWT.COLOR_BLACK);
-
+		
 		//Create the tank coords
 		TankMovement tankMove = new TankMovement(x, y, canvas, shell);
 		
@@ -45,11 +46,11 @@ public class XTankUI
 			Color red = new Color(device, 255,0,0);
 			//event.gc.setBackground(shell.getDisplay().getSystemColor(SWT.COLOR_DARK_GREEN));
 			event.gc.setBackground(red);
-			event.gc.fillRectangle(tankMove.getX(), tankMove.getY(), 50, 100);
+			event.gc.fillRectangle(tankMove.getX(), tankMove.getY(), 40, 90);
 			event.gc.setBackground(shell.getDisplay().getSystemColor(SWT.COLOR_BLACK));
-			event.gc.fillOval(tankMove.getX(), tankMove.getY()+25, 50, 50);
-			event.gc.setLineWidth(4);
-			event.gc.drawLine(tankMove.getX()+25, tankMove.getY()+25, tankMove.getX()+25, tankMove.getY()-15);
+			event.gc.fillOval(tankMove.getX(), tankMove.getY()+20, 40, 40);
+			event.gc.setLineWidth(3);
+			event.gc.drawLine(tankMove.getX()+20, tankMove.getY()+20, tankMove.getX()+20, tankMove.getY()-10);
 			
 		});	
 
