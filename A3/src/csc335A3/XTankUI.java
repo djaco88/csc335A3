@@ -33,7 +33,7 @@ public class XTankUI
 		Shell shell = new Shell(display);
 		shell.setText("xtank");
 		shell.setLayout(new FillLayout());
-		shell.setSize(1000,800);
+		shell.setSize(1200,800);
 		canvas = new Canvas(shell, SWT.COLOR_BLACK);
 		
 		//Create the tank coords
@@ -81,7 +81,7 @@ public class XTankUI
 						}
 					}
 					else if(tankMove.getDirection() == "down") {
-						for(;missle.getY() < 550 ;) {
+						for(;missle.getY() < 750 ;) {
 								canvas.addPaintListener(event -> {
 									event.gc.fillOval(missle.getX(), missle.getY(), 5, 5);
 									event.gc.drawOval(missle.getX(),missle.getY(),5,5);
@@ -91,7 +91,7 @@ public class XTankUI
 						}
 					}
 					else if(tankMove.getDirection() == "right") {
-						for(;missle.getX() < 800 ;) {
+						for(;missle.getX() < 1170 ;) {
 								canvas.addPaintListener(event -> {
 									event.gc.fillOval(missle.getX(), missle.getY(), 5, 5);
 									event.gc.drawOval(missle.getX(),missle.getY(),5,5);
