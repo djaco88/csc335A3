@@ -76,9 +76,9 @@ public class XTankUI
 						//canvas.redraw();
 					}
 				}
-				
-				tankMove.action(e);
-				
+				else {
+					tankMove.action(e);
+				}
 				try {
 					out.writeInt(tankMove.getY());
 					//out.writeInt(x);

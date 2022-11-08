@@ -48,6 +48,7 @@ public class TankMovement {
 			if(rotation != "down") {
 				//flip
 				rotation = "down";
+				
 			}
 			y += directionDown;
 			break;

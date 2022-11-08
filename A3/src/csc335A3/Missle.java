@@ -32,6 +32,6 @@ public class Missle {
 	}
 	
 	void shootUp() {
-		y -= 20;
+		y -= 10;
 	}
 }
