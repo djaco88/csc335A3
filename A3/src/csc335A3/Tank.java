@@ -9,25 +9,31 @@ public class Tank {
 	
 	private String userName;
 	private TankModel model;
+	// coords
+	private int x;
+	private int y;
 	//upper Left and Right coordinates
-	private int[] uRCoor;
-	private int[] uLCoor;
+	//private int[] uRCoor;
+	//private int[] uLCoor;
 	//lower Left and Right coordinates
-	private int[] lRCoor;
-	private int[] lLCoor;
+	//private int[] lRCoor;
+	//private int[] lLCoor;
 	// hitpoints/armor
 	private int hP;
 	private String orientation;
 	
 	// TODO: make weapons class and add a variable here to store it
 	
-	public Tank(String user, int[] uL, int[] uR, int[] lR, int[] lL, int hP) {
+	public Tank(String user, int x, int y, int hP) {
 		this.hP = hP;
 		this.userName = user;
-		this.uLCoor = uL;
-		this.uRCoor = uR;
-		this.lRCoor = lR;
-		this.lLCoor = lL;
+		this.x = x;
+		this.y = y;
+		//
+		// this.uLCoor = uL;
+		// this.uRCoor = uR;
+		// this.lRCoor = lR;
+		// this.lLCoor = lL;
 		//start with up orientation
 		this.orientation = "up";
 	}
@@ -51,6 +57,15 @@ public class Tank {
 	public String getOrientation() {
 		return this.orientation;
 	}
+	public void setCoors(int x, int y) {
+		this.x = x;
+		this.y = y;
+	}
+	public int[] getCoors() {
+		int[] coors = {this.x,this.y};
+		return coors;
+	}
+	/*
 	// may want to take in an int[][] instead of four int[]
 	public void setCoors(int[] uL, int[] uR, int[] lR, int[] lL) {
 		this.uLCoor = uL;
@@ -61,7 +76,7 @@ public class Tank {
 	public int[][] getCoors(){
 		int[][] coors = {this.uRCoor,this.uLCoor,this.lRCoor,this.lLCoor};
 		return coors;
-	}
+	}*/
 	// TODO: implement a function to change all coordinates by a set value
 	
 	//Tank
