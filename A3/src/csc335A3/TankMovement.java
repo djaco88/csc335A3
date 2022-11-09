@@ -50,7 +50,9 @@ public class TankMovement {
 				rotation = "down";
 				
 			}
-			y += directionDown;
+			if(y< 670) {
+				y += directionDown;
+			}
 			break;
 		}
 		case SWT.ARROW_UP:{
@@ -58,16 +60,20 @@ public class TankMovement {
 				//Flip
 				rotation = "up";
 			}
-			y += directionUp;
+			if(y > 20) {
+				y += directionUp;
+			}
 			break;
 		}
 		case SWT.ARROW_LEFT:{
-			x += directionLeft;
+			//x += directionLeft;
 			if(rotation != "left") {
 				//flip
 				rotation = "left";
 			}
-			x += directionLeft;
+			if(x > 5) {
+				x += directionLeft;
+			}
 			break;
 		}
 		case SWT.ARROW_RIGHT:{
@@ -75,7 +81,9 @@ public class TankMovement {
 				//flip
 				rotation = "right";
 			}
-			x += directionRight;
+			if(x < 1140) {
+				x += directionRight;
+			}
 			break;
 		}
 		case SWT.SPACE: {

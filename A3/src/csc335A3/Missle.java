@@ -32,15 +32,15 @@ public class Missle {
 	}
 	
 	void shootUp() {
-		y -= 1;
+		y -= 10;
 	}
 	void shootDown() {
-		y += 1;
+		y += 10;
 	}
 	void shootRight() {
-		x += 1;
+		x += 10;
 	}
 	void shootLeft() {
-		x -= 1;
+		x -= 10;
 	}
 }

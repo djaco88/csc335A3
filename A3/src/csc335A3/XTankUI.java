@@ -8,6 +8,7 @@ import org.eclipse.swt.widgets.*;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 public class XTankUI
 {
@@ -74,27 +75,32 @@ public class XTankUI
 								canvas.addPaintListener(event -> {
 									event.gc.setBackground(shell.getDisplay().getSystemColor(SWT.COLOR_DARK_GREEN));
 									event.gc.fillOval(missle.getX(), missle.getY(), 5, 5);
-									event.gc.drawOval(missle.getX(),missle.getY(),5,5);
+									//event.gc.setBackground(shell.getDisplay().getSystemColor(SWT.COLOR_DARK_GREEN));
+									//event.gc.drawOval(missle.getX(),missle.getY(),5,5);
+									canvas.redraw();
 								});	
 								missle.shootUp();		
-						//canvas.redraw();
+								//canvas.redraw();
+
 						}
 					}
 					else if(tankMove.getDirection() == "down") {
 						for(;missle.getY() < 750 ;) {
 								canvas.addPaintListener(event -> {
 									event.gc.fillOval(missle.getX(), missle.getY(), 5, 5);
-									event.gc.drawOval(missle.getX(),missle.getY(),5,5);
+									//event.gc.drawOval(missle.getX(),missle.getY(),5,5);
+							
 								});	
 								missle.shootDown();		
 						//canvas.redraw();
+						//display.sleep();
 						}
 					}
 					else if(tankMove.getDirection() == "right") {
 						for(;missle.getX() < 1170 ;) {
 								canvas.addPaintListener(event -> {
 									event.gc.fillOval(missle.getX(), missle.getY(), 5, 5);
-									event.gc.drawOval(missle.getX(),missle.getY(),5,5);
+									//event.gc.drawOval(missle.getX(),missle.getY(),5,5);
 								});	
 								missle.shootRight();		
 						//canvas.redraw();
@@ -104,7 +110,7 @@ public class XTankUI
 						for(;missle.getX() > 0 ;) {
 								canvas.addPaintListener(event -> {
 									event.gc.fillOval(missle.getX(), missle.getY(), 5, 5);
-									event.gc.drawOval(missle.getX(),missle.getY(),5,5);
+									//event.gc.drawOval(missle.getX(),missle.getY(),5,5);
 								});	
 								missle.shootLeft();		
 						//canvas.redraw();
