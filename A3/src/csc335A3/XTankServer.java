@@ -19,7 +19,9 @@ public class XTankServer
 	
     public static void main(String[] args) throws Exception 
     {
+    	System.out.println("-----------");
 		System.out.println(InetAddress.getLocalHost());
+    	System.out.println("-----------");
 		sq = new ArrayList<>();
 		
         try (var listener = new ServerSocket(59896)) 
