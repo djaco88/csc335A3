@@ -27,12 +27,14 @@ public class Player {
 		this.tank = tank;
 	}
 	
-	private Tank generateTank() {
+	private void generateTank() {
 		Random rand = new Random();
 		int r = rand.nextInt(255);
 		int b = rand.nextInt(255);
 		int g = rand.nextInt(255);
-		this.tank = new Tank(this.name, 0, 0, )
+		TankModel model = new TankModel(this.name, r, b, g);
+		this.tank = new Tank(this.name, 0, 0, 1);
+		this.tank.setModel(model);
 		
 	}
 
