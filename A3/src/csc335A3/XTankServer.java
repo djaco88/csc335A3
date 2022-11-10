@@ -9,6 +9,7 @@ import java.net.InetAddress;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.util.ArrayList;
+import java.util.Hashtable;
 
 /**
  * When a client connects, a new thread is started to handle it.
@@ -16,6 +17,8 @@ import java.util.ArrayList;
 public class XTankServer 
 {
 	static ArrayList<DataOutputStream> sq;
+	public Hashtable<String, Player> players;
+	public static int test;
 	
     public static void main(String[] args) throws Exception 
     {
@@ -57,8 +60,17 @@ public class XTankServer
                 	ycoord = in.readInt();
                 	//xcoord = in.readInt();
                 	System.out.println("ycoord = " + ycoord);
+                	
                 	// we can use this to keep track of clients: socket.getRemoteSocketAddress().toString()
-                	System.out.println("User info:"+socket.getRemoteSocketAddress().toString());
+                	
+                	//debug code
+                	String name = socket.getRemoteSocketAddress().toString();
+                	System.out.println("User info:"+name);
+                	//test.add(name);
+                	test++;
+                	System.out.println("Number of connections:" + test);
+                	
+                	
                 	//System.out.println(" xcoord" + xcoord);
                 	for (DataOutputStream o: sq)
                 	{
