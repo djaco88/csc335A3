@@ -57,6 +57,8 @@ public class XTankServer
                 	ycoord = in.readInt();
                 	//xcoord = in.readInt();
                 	System.out.println("ycoord = " + ycoord);
+                	// we can use this to keep track of clients: socket.getRemoteSocketAddress().toString()
+                	System.out.println("User info:"+socket.getRemoteSocketAddress().toString());
                 	//System.out.println(" xcoord" + xcoord);
                 	for (DataOutputStream o: sq)
                 	{
