@@ -77,7 +77,7 @@ public class XTankUI
 									event.gc.fillOval(missle.getX(), missle.getY(), 5, 5);
 									//event.gc.setBackground(shell.getDisplay().getSystemColor(SWT.COLOR_DARK_GREEN));
 									//event.gc.drawOval(missle.getX(),missle.getY(),5,5);
-									canvas.redraw();
+									//canvas.redraw();
 								});	
 								missle.shootUp();		
 								//canvas.redraw();
