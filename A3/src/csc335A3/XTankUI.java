@@ -74,10 +74,7 @@ public class XTankUI
 						for(;missle.getY() > 0 ;) {
 								canvas.addPaintListener(event -> {
 									event.gc.setBackground(shell.getDisplay().getSystemColor(SWT.COLOR_DARK_GREEN));
-									event.gc.fillOval(missle.getX(), missle.getY(), 5, 5);
-									//event.gc.setBackground(shell.getDisplay().getSystemColor(SWT.COLOR_DARK_GREEN));
-									//event.gc.drawOval(missle.getX(),missle.getY(),5,5);
-									//canvas.redraw();
+
 								});	
 								missle.shootUp();		
 								//canvas.redraw();
@@ -116,7 +113,6 @@ public class XTankUI
 						//canvas.redraw();
 						}
 					}
-					
 				}
 				else {
 					tankMove.action(e);
