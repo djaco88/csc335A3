@@ -58,7 +58,6 @@ public class XTankServer
             	InputStream in = socket.getInputStream();
             	OutputStream out = socket.getOutputStream();
             	ObjectInputStream obIn = new ObjectInputStream(in);
-            	System.out.println("HERE");
             	ObjectOutputStream obOut = new ObjectOutputStream(out);
             	
                 sq.add(obOut);
