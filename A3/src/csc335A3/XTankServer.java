@@ -84,11 +84,8 @@ public class XTankServer
                     	System.out.println("o = " + o);
                     	
                     	//debugging test: try to send string to client
-                        System.out.println("here0");
                     	o.writeObject("THIS IS A TEST");
-                        System.out.println("here1");
     					o.writeInt(ycoord);
-                        System.out.println("here2");
                         o.flush();
     					//o.writeInt(xcoord);
                 	}
