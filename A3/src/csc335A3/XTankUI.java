@@ -8,6 +8,8 @@ import org.eclipse.swt.widgets.*;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.concurrent.TimeUnit;
 
 public class XTankUI
@@ -19,10 +21,10 @@ public class XTankUI
 	private Canvas canvas;
 	private Display display;
 	
-	DataInputStream in; 
-	DataOutputStream out;
+	ObjectInputStream in; 
+	ObjectOutputStream out;
 	
-	public XTankUI(DataInputStream in, DataOutputStream out)
+	public XTankUI(ObjectInputStream in, ObjectOutputStream out)
 	{
 		this.in = in;
 		this.out = out;
@@ -119,6 +121,7 @@ public class XTankUI
 				}
 				try {
 					out.writeInt(tankMove.getY());
+					out.flush();
 					//out.writeInt(x);
 				}
 				catch(IOException ex) {
@@ -132,6 +135,7 @@ public class XTankUI
 
 		try {
 			out.writeInt(tankMove.getY());
+			out.flush();
 			//out.writeInt(x);
 		}
 		catch(IOException ex) {

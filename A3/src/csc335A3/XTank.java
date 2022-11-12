@@ -3,6 +3,10 @@ package csc335A3;
 import java.net.Socket;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.InputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
 
 public class XTank 
 {
@@ -10,9 +14,12 @@ public class XTank
     {
         try (var socket = new Socket("127.0.0.1", 59896)) 
         {
-        	DataInputStream in = new DataInputStream(socket.getInputStream());
-        	DataOutputStream out = new DataOutputStream(socket.getOutputStream());
-            var ui = new XTankUI(in, out);
+        	InputStream in = socket.getInputStream();
+        	OutputStream out = socket.getOutputStream();
+        	ObjectOutputStream obOut = new ObjectOutputStream(out);
+        	obOut.flush();
+        	ObjectInputStream obIn = new ObjectInputStream(in);
+            var ui = new XTankUI(obIn, obOut);
             ui.start();
         }
     }

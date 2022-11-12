@@ -2,6 +2,10 @@ package csc335A3;
 
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.concurrent.Executors;
@@ -16,7 +20,7 @@ import java.util.Hashtable;
  */
 public class XTankServer 
 {
-	static ArrayList<DataOutputStream> sq;
+	static ArrayList<ObjectOutputStream> sq;
 	static Hashtable<String, Player> players;
 	public static int test;
 	
@@ -51,14 +55,18 @@ public class XTankServer
             System.out.println("Connected: " + socket);
             try 
             {
-            	DataInputStream in = new DataInputStream(socket.getInputStream());
-            	DataOutputStream out = new DataOutputStream(socket.getOutputStream());
-                sq.add(out);
+            	InputStream in = socket.getInputStream();
+            	OutputStream out = socket.getOutputStream();
+            	ObjectInputStream obIn = new ObjectInputStream(in);
+            	System.out.println("HERE");
+            	ObjectOutputStream obOut = new ObjectOutputStream(out);
+            	
+                sq.add(obOut);
                 int ycoord;
                 //int xcoord;
                 while (true)
                 {
-                	ycoord = in.readInt();
+                	ycoord = obIn.readInt();
                 	//xcoord = in.readInt();
                 	System.out.println("ycoord = " + ycoord);
                 	
@@ -72,7 +80,7 @@ public class XTankServer
                 	
                 	
                 	//System.out.println(" xcoord" + xcoord);
-                	for (DataOutputStream o: sq)
+                	for (ObjectOutputStream o: sq)
                 	{
                     	System.out.println("o = " + o);
     					o.writeInt(ycoord);
