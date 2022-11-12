@@ -66,7 +66,7 @@ public class XTankServer
                 while (true)
                 {
                 	ycoord = obIn.readInt();
-                	//xcoord = in.readInt();
+                	
                 	System.out.println("ycoord = " + ycoord);
                 	
                 	//add players to hashtable
@@ -84,8 +84,9 @@ public class XTankServer
                     	System.out.println("o = " + o);
                     	
                     	//debugging test: try to send string to client
+                    	//o.writeObject(players);
                     	o.writeObject("THIS IS A TEST");
-    					o.writeInt(ycoord);
+    					//o.writeInt(ycoord);
                         o.flush();
     					//o.writeInt(xcoord);
                 	}

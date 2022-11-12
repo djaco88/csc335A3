@@ -34,7 +34,7 @@ public class Player {
 		int g = rand.nextInt(255);
 		TankModel model = new TankModel(this.name, r, b, g);
 		// TODO: initialize tank starting position
-		this.tank = new Tank(this.name, 0, 0, 1);
+		this.tank = new Tank(this.name, 300, 500, 1);
 		this.tank.setModel(model);
 		
 	}

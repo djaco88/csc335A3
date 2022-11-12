@@ -10,13 +10,17 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.concurrent.TimeUnit;
 
 public class XTankUI
 {
-	Hashtable<String, Player> players;
+	private ArrayList<Player> players;
 	// The location and direction of the "tank"
+	private Player playerOne = new Player("player 1");
+	int[] coords = {300,500};
+	Tank tank = playerOne.getTank();
 	private int x = 300;
 	private int y = 500; 
 
@@ -158,6 +162,18 @@ public class XTankUI
 		public void run() 
 		{
 			try {
+				/*Object test = "fail";
+				System.out.println("HERE1");
+				try {
+					test = in.readObject();
+				} catch (ClassNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+				System.out.println("HERE2");
+				System.out.println(test);
+				System.out.println("HERE3");*/
 				if (in.available() > 0)
 				{
 					System.out.println("here a");
@@ -166,6 +182,7 @@ public class XTankUI
 						System.out.println("here b");
 						test = (String) in.readObject();
 						//players = (Hashtable<String, Player>) in.readObject();
+						System.out.println("Test: "+test);
 						System.out.println("here c");
 					} catch (ClassNotFoundException e) {
 						// TODO Auto-generated catch block
