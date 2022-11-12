@@ -173,7 +173,7 @@ public class XTankUI
 					}
 					y = in.readInt();
 					//x = in.readInt();
-					//System.out.println("y = " + y);
+					System.out.println("y = " + y);
 					canvas.redraw();
 				}
 			}
