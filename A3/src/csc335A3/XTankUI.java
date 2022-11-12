@@ -38,6 +38,7 @@ public class XTankUI
 	
 	public void start()
 	{
+		players.add(playerOne);
 		display = new Display();
 		Shell shell = new Shell(display);
 		shell.setText("xtank");
@@ -46,21 +47,24 @@ public class XTankUI
 		canvas = new Canvas(shell, SWT.COLOR_BLACK);
 		
 		//Create the tank coords
-		TankMovement tankMove = new TankMovement(x, y, canvas, shell);
+		//TankMovement tankMove = new TankMovement(x, y, canvas, shell);
 		
-		//Tank
+		//Tanks
 		canvas.addPaintListener(event -> {
+			for(int i = 0; i < players.size(); i++) {
 			event.gc.fillRectangle(canvas.getBounds());
 			Device device = Display.getCurrent();
-			Color red = new Color(device, 255,0,0);
-			//event.gc.setBackground(shell.getDisplay().getSystemColor(SWT.COLOR_DARK_GREEN));
-			event.gc.setBackground(red);
-			event.gc.fillRectangle(tankMove.getX(), tankMove.getY(), 40, 90);
+			int rbg[] = players.get(i).getTank().getModel().getRBG();
+			Color c = new Color(device, rbg[0],rbg[1],rbg[2]);
+				//event.gc.setBackground(shell.getDisplay().getSystemColor(SWT.COLOR_DARK_GREEN));
+			event.gc.setBackground(c);
+			event.gc.fillRectangle(players.get(i).getTank().getMove().getX(), players.get(i).getTank().getMove().getY(), 40, 90);
 			event.gc.setBackground(shell.getDisplay().getSystemColor(SWT.COLOR_BLACK));
-			event.gc.fillOval(tankMove.getX(), tankMove.getY()+20, 40, 40);
+			event.gc.fillOval(players.get(i).getTank().getMove().getX(), players.get(i).getTank().getMove().getY()+20, 40, 40);
 			event.gc.setLineWidth(3);
-			event.gc.drawLine(tankMove.getX()+20, tankMove.getY()+20, tankMove.getX()+20, tankMove.getY()-10);
-			
+			event.gc.drawLine(players.get(i).getTank().getMove().getX()+20, players.get(i).getTank().getMove().getY()+20,
+						      players.get(i).getTank().getMove().getX()+20, players.get(i).getTank().getMove().getY()-10);
+			}
 		});	
 
 		canvas.addMouseListener(new MouseListener() {
@@ -76,9 +80,9 @@ public class XTankUI
 			public void keyPressed(KeyEvent e) {
 				//System.out.println("key " + e.character);
 				// update tank location
-				Missle missle = new Missle(tankMove.getX(), tankMove.getY());	
+				Missle missle = new Missle(players.get(0).getTank().getMove().getX(), players.get(0).getTank().getMove().getY());	
 				if(e.keyCode == SWT.SPACE) { //Fire 
-					if(tankMove.getDirection() == "up") {
+					if(players.get(0).getTank().getMove().getDirection() == "up") {
 						for(;missle.getY() > 0 ;) {
 								canvas.addPaintListener(event -> {
 									event.gc.setBackground(shell.getDisplay().getSystemColor(SWT.COLOR_DARK_GREEN));
@@ -89,7 +93,7 @@ public class XTankUI
 
 						}
 					}
-					else if(tankMove.getDirection() == "down") {
+					else if(players.get(0).getTank().getMove().getDirection() == "down") {
 						for(;missle.getY() < 750 ;) {
 								canvas.addPaintListener(event -> {
 									event.gc.fillOval(missle.getX(), missle.getY(), 5, 5);
@@ -101,7 +105,7 @@ public class XTankUI
 						//display.sleep();
 						}
 					}
-					else if(tankMove.getDirection() == "right") {
+					else if(players.get(0).getTank().getMove().getDirection() == "right") {
 						for(;missle.getX() < 1170 ;) {
 								canvas.addPaintListener(event -> {
 									event.gc.fillOval(missle.getX(), missle.getY(), 5, 5);
@@ -111,7 +115,7 @@ public class XTankUI
 						//canvas.redraw();
 						}
 					}
-					else if(tankMove.getDirection() == "left") {
+					else if(players.get(0).getTank().getMove().getDirection() == "left") {
 						for(;missle.getX() > 0 ;) {
 								canvas.addPaintListener(event -> {
 									event.gc.fillOval(missle.getX(), missle.getY(), 5, 5);
@@ -123,10 +127,10 @@ public class XTankUI
 					}
 				}
 				else {
-					tankMove.action(e);
+					players.get(0).getTank().getMove().action(e);
 				}
 				try {
-					out.writeInt(tankMove.getY());
+					out.writeInt(players.get(0).getTank().getMove().getY());
 					out.flush();
 					//out.writeInt(x);
 				}
@@ -140,7 +144,7 @@ public class XTankUI
 		});
 
 		try {
-			out.writeInt(tankMove.getY());
+			out.writeInt(players.get(0).getTank().getMove().getY());
 			out.flush();
 			//out.writeInt(x);
 		}

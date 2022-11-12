@@ -63,6 +63,14 @@ public class Tank {
 		this.hP = hP;
 	}
 	
+	public void setMove(TankMovement m) {
+		move = m;
+	}
+	
+	public TankMovement getMove() {
+		return move;
+	}
+	
 	//Tank
 	/*  Davids Tank Creating Function
 	    canvas.addPaintListener(event -> {

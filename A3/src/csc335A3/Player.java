@@ -36,7 +36,6 @@ public class Player {
 		// TODO: initialize tank starting position
 		this.tank = new Tank(this.name, 300, 500, 1);
 		this.tank.setModel(model);
-		
 	}
 
 }
