@@ -82,7 +82,13 @@ public class XTankServer
                 	for (ObjectOutputStream o: sq)
                 	{
                     	System.out.println("o = " + o);
+                        System.out.println("here0");
+                    	o.writeObject("THIS IS A TEST");
+                    	o.flush();
+                        System.out.println("here1");
     					o.writeInt(ycoord);
+                        System.out.println("here2");
+    					o.flush();
     					//o.writeInt(xcoord);
                 	}
                 }
