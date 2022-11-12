@@ -17,7 +17,7 @@ import java.util.Hashtable;
 public class XTankServer 
 {
 	static ArrayList<DataOutputStream> sq;
-	public Hashtable<String, Player> players;
+	static Hashtable<String, Player> players;
 	public static int test;
 	
     public static void main(String[] args) throws Exception 
@@ -26,6 +26,7 @@ public class XTankServer
 		System.out.println(InetAddress.getLocalHost());
     	System.out.println("-----------");
 		sq = new ArrayList<>();
+		players = new Hashtable<String, Player>();
 		
         try (var listener = new ServerSocket(59896)) 
         {
@@ -61,14 +62,13 @@ public class XTankServer
                 	//xcoord = in.readInt();
                 	System.out.println("ycoord = " + ycoord);
                 	
-                	// we can use this to keep track of clients: socket.getRemoteSocketAddress().toString()
-                	
-                	//debug code
+                	//add players to hashtable
                 	String name = socket.getRemoteSocketAddress().toString();
-                	System.out.println("User info:"+name);
-                	//test.add(name);
-                	test++;
-                	System.out.println("Number of connections:" + test);
+                	if (!players.containsKey(name)) {
+                		players.put(name, new Player(name));
+                	}
+                	//debug code
+                	System.out.println("Name in player class: "+players.get(name).getName());
                 	
                 	
                 	//System.out.println(" xcoord" + xcoord);
