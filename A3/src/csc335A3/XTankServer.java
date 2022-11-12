@@ -21,6 +21,7 @@ import java.util.Hashtable;
 public class XTankServer 
 {
 	static ArrayList<ObjectOutputStream> sq;
+	static ArrayList<Socket> sockets;
 	static Hashtable<String, Player> players;
 	public static int test;
 	
@@ -30,6 +31,7 @@ public class XTankServer
 		System.out.println(InetAddress.getLocalHost());
     	System.out.println("-----------");
 		sq = new ArrayList<>();
+		sockets = new ArrayList<>();
 		players = new Hashtable<String, Player>();
 		
         try (var listener = new ServerSocket(59896)) 
@@ -61,6 +63,7 @@ public class XTankServer
             	ObjectOutputStream obOut = new ObjectOutputStream(out);
             	
                 sq.add(obOut);
+                sockets.add(socket);
                 int ycoord;
                 //int xcoord;
                 while (true)
@@ -98,9 +101,16 @@ public class XTankServer
             } 
             finally 
             {
-                try { socket.close(); } 
+                try { 
+
+                    System.out.println("Closed: " + socket);
+                    int index = sockets.indexOf(socket);
+                    sockets.remove(index);
+                    sq.remove(index);
+                    socket.close(); 
+                    } 
                 catch (IOException e) {}
-                System.out.println("Closed: " + socket);
+                
             }
         }
     }
