@@ -19,6 +19,7 @@ public class Tank {
 	// TODO: make weapons class and add a variable here to store it
 	
 	public Tank(String user, int x, int y, int hP) {
+		this.move = new TankMovement(x,y);
 		this.sethP(hP);
 		this.userName = user;
 		//start with up orientation

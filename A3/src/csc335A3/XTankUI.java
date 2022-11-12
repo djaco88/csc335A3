@@ -38,6 +38,7 @@ public class XTankUI
 	
 	public void start()
 	{
+		players = new ArrayList<>();
 		players.add(playerOne);
 		display = new Display();
 		Shell shell = new Shell(display);

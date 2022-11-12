@@ -17,7 +17,7 @@ public class TankMovement {
 	Canvas canvas;
 	Shell shell;
 	
-	TankMovement(int x, int y, Canvas canvas, Shell shell){
+	TankMovement(int x, int y){
 		this.x = x;
 		this.y = y;
 	}
