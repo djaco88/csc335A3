@@ -25,9 +25,12 @@ public class XTankServer
 	static ArrayList<Socket> sockets;
 	static Hashtable<String, Player> players;
 	public static int test;
+	private static int[][] startingPoints;
 	
     public static void main(String[] args) throws Exception 
     {
+    	int[][] points = {{300,500}, {500,500}, {700,500}, {100,400}, {300,400}, {500,400}, {700,400}};
+    	startingPoints = points;
     	System.out.println("-----------");
 		System.out.println(InetAddress.getLocalHost());
     	System.out.println("-----------");
