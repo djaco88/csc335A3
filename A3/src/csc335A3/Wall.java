@@ -1,6 +1,10 @@
 package csc335A3;
 
-public class Wall {
+import java.io.Serializable;
+
+public class Wall implements Serializable{
+	private static final long serialVersionUID = 4987435494666781947L;
+	
 	private int length;
 	private int width;
 	private int[] coordinates;

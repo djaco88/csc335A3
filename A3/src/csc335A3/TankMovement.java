@@ -1,11 +1,14 @@
 package csc335A3;
 
+import java.io.Serializable;
+
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.KeyEvent;
 import org.eclipse.swt.widgets.Canvas;
 import org.eclipse.swt.widgets.Shell;
 
-public class TankMovement {
+public class TankMovement implements Serializable{
+	private static final long serialVersionUID = -3251434859338361504L;
 	
 	public int x;
 	public int y; 

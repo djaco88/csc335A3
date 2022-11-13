@@ -1,11 +1,15 @@
 package csc335A3;
 
+import java.io.Serializable;
+
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Canvas;
 import org.eclipse.swt.widgets.Shell;
 
-public class Missle {
+public class Missle implements Serializable{
 
+	private static final long serialVersionUID = -1827142864999109750L;
+	
 	private int x;
 	private int y;
 	

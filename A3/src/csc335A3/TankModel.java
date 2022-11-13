@@ -3,7 +3,11 @@
  */
 package csc335A3;
 
-public class TankModel {
+import java.io.Serializable;
+
+public class TankModel implements Serializable{
+	
+	private static final long serialVersionUID = -8514351025877623441L;
 	
 	private String name;
 	// rbg values for color
