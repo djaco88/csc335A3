@@ -80,7 +80,7 @@ public class XTankUI
 					event.gc.fillRectangle(players.get(i).getTank().getMove().getX(), players.get(i).getTank().getMove().getY(),
 								players.get(i).getTank().getMove().getRecWidth(), players.get(i).getTank().getMove().getRecHeight());
 					event.gc.setBackground(shell.getDisplay().getSystemColor(SWT.COLOR_BLACK));
-					event.gc.fillOval(players.get(i).getTank().getMove().getX(),players.get(i).getTank().getMove().getY() + players.get(i).getTank().getMove().getLineHeight(), players.get(i).getTank().getMove().getRecHeight(), players.get(i).getTank().getMove().getRecHeight());
+					event.gc.fillOval(players.get(i).getTank().getMove().getX(),players.get(i).getTank().getMove().getY() + players.get(i).getTank().getMove().getLineWidth(), players.get(i).getTank().getMove().getRecHeight(), players.get(i).getTank().getMove().getRecHeight());
 					event.gc.setLineWidth(3);
 					event.gc.drawLine(players.get(i).getTank().getMove().getX()+players.get(i).getTank().getMove().getLineHeight(),
 							players.get(i).getTank().getMove().getY() + players.get(i).getTank().getMove().getLineHeight(),
