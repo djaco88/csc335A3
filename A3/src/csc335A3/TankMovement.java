@@ -74,7 +74,7 @@ public class TankMovement implements Serializable{
 		case SWT.ARROW_DOWN:{
 			if(rotation != "down") {
 				//flip
-				flipDown();
+				//flipDown();
 				rotation = "down";
 				
 			}
@@ -86,7 +86,7 @@ public class TankMovement implements Serializable{
 		case SWT.ARROW_UP:{
 			if(rotation != "up") {
 				//Flip
-				flipUp();
+				//flipUp();
 				rotation = "up";
 			}
 			if(y > 20) {
@@ -98,7 +98,7 @@ public class TankMovement implements Serializable{
 			//x += directionLeft;
 			if(rotation != "left") {
 				//flip
-				flipLeft();
+				//flipLeft();
 				rotation = "left";
 			}
 			if(x > 5) {
@@ -108,7 +108,7 @@ public class TankMovement implements Serializable{
 		}
 		case SWT.ARROW_RIGHT:{
 			if(rotation != "right") {
-				flipRight();
+				//flipRight();
 				//flip
 				rotation = "right";
 			}
