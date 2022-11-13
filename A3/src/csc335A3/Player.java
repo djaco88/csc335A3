@@ -1,8 +1,9 @@
 package csc335A3;
 
 import java.util.Random;
+import java.io.Serializable;
 
-public class Player {
+public class Player implements Serializable{
 	private String name;
 	private Tank tank;
 	

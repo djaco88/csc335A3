@@ -9,6 +9,10 @@ public class TankMovement {
 	
 	public int x;
 	public int y; 
+	public int recWidth;
+	public int recHeight;
+	public int lineWidth;
+	public int lineHeight;
 	private int directionRight = 10;
 	private int directionLeft = -10;
 	private int directionUp = -10;
@@ -20,6 +24,10 @@ public class TankMovement {
 	TankMovement(int x, int y){
 		this.x = x;
 		this.y = y;
+		this.recWidth = 40;
+		this.recHeight = 90;
+		this.lineWidth = 20;
+		this.lineHeight = -10;
 	}
 	
 	int getX() {
@@ -38,6 +46,22 @@ public class TankMovement {
 		this.y = y;
 	}
 	
+	int getRecHeight() {
+		return recHeight;
+	}
+	
+	int getRecWidth() {
+		return recWidth;
+	}
+	
+	int getLineWidth() {
+		return lineWidth;
+	}
+	
+	int getLineHeight() {
+		return lineHeight;
+	}
+	
 	String getDirection() {
 		return rotation;
 	}
@@ -47,6 +71,7 @@ public class TankMovement {
 		case SWT.ARROW_DOWN:{
 			if(rotation != "down") {
 				//flip
+				flipDown();
 				rotation = "down";
 				
 			}
@@ -58,6 +83,7 @@ public class TankMovement {
 		case SWT.ARROW_UP:{
 			if(rotation != "up") {
 				//Flip
+				flipUp();
 				rotation = "up";
 			}
 			if(y > 20) {
@@ -69,6 +95,7 @@ public class TankMovement {
 			//x += directionLeft;
 			if(rotation != "left") {
 				//flip
+				flipLeft();
 				rotation = "left";
 			}
 			if(x > 5) {
@@ -78,6 +105,7 @@ public class TankMovement {
 		}
 		case SWT.ARROW_RIGHT:{
 			if(rotation != "right") {
+				flipRight();
 				//flip
 				rotation = "right";
 			}
@@ -95,6 +123,79 @@ public class TankMovement {
 		}
 	}
 	
+	void flipUp() {
+		if(rotation == "down") {
+			y-=90;
+			x-=40;
+		}
+		if(rotation == "left") {
+			x+=50;
+			y-=70;
+		}
+		if(rotation == "right") {
+			y-=25;
+			x-=70;
+		}
+		recHeight = 90;
+		recWidth = 40;
+		lineWidth = 20;
+		lineHeight = -10;
+	}
 	
+	void flipDown() {
+		if(rotation == "up") {
+			y+=90;
+			x+=40;
+		}
+		if(rotation == "left") {
+			x+=65;
+			y+=25;
+		}
+		if(rotation == "right") {
+			y+=65;
+			x+=65;
+		}
+		recHeight = -90;
+		recWidth = -40;
+		lineWidth = -20;
+		lineHeight = +10;
+	}
 	
+	void flipLeft() {
+		if(rotation == "up") {
+			y+=65;
+			x-=25;
+		}
+		if(rotation == "down") {
+			x-=25;
+			y-=65;
+		}
+		if(rotation == "right") {
+			y+=40;
+			x-=90;
+		}
+		recHeight = -40;
+		recWidth = 90;
+		lineWidth = -10;
+		lineHeight = -20;
+	}
+	
+	void flipRight() {
+		if(rotation == "up") {
+			y+=65;
+			x-=25;
+		}
+		if(rotation == "down") {
+			x-=25;
+			y-=65;
+		}
+		if(rotation == "right") {
+			y+=40;
+			x-=90;
+		}
+		recHeight = 40;
+		recWidth = -90;
+		lineWidth = 10;
+		lineHeight = 20;
+	}
 }
