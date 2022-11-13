@@ -3,7 +3,7 @@ Programmers: Quinn Jones and Jake Davis
 CSC 335 
 X-Tank
 
-TO RUN: run XTankServer.java, wait until its running and then run XTank.java. Multiple Xtank.javas can be run, the server can support multiple clients
+TO RUN: from csc335/A3/src/csc335A3 run XTankServer.java, wait until its running and then run XTank.java. Multiple Xtank.javas can be run, the server can support multiple clients
 
 NOTE1: UML diagram is huge, please download it to view it well.
 
