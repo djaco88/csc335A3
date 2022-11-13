@@ -65,19 +65,24 @@ public class XTankServer
             	
                 sq.add(obOut);
                 sockets.add(socket);
-                int ycoord;
+                int[] coords;
                 //int xcoord;
                 while (true)
                 {
-                	ycoord = obIn.readInt();
+                	coords = (int[]) obIn.readObject();
+                	int x = coords[0];
+                	int y = coords[1];
                 	
-                	System.out.println("ycoord = " + ycoord);
+                	System.out.println("coords = " + x + ", " + y);
                 	
                 	//add players to hashtable
                 	String name = socket.getRemoteSocketAddress().toString();
                 	if (!players.containsKey(name)) {
                 		players.put(name, new Player(name));
                 	}
+                	players.get(name).getTank().getMove().setX(coords[0]);
+                	players.get(name).getTank().getMove().setY(coords[1]);
+                	
                 	//debug code
                 	System.out.println("Name in player class: "+players.get(name).getName());
                 	

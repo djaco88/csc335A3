@@ -152,7 +152,8 @@ public class XTankUI
 					players.get(0).getTank().getMove().action(e);
 				}
 				try {
-					out.writeInt(players.get(0).getTank().getMove().getY());
+					int[] temp = {players.get(0).getTank().getMove().getX(),players.get(0).getTank().getMove().getY()};
+					out.writeObject(temp);
 					out.flush();
 					//out.writeInt(x);
 				}
@@ -166,7 +167,8 @@ public class XTankUI
 		});
 
 		try {
-			out.writeInt(players.get(0).getTank().getMove().getY());
+			int[] temp = {players.get(0).getTank().getMove().getX(),players.get(0).getTank().getMove().getY()};
+			out.writeObject(temp);
 			out.flush();
 			//out.writeInt(x);
 		}
