@@ -82,7 +82,7 @@ public class XTankServer
                 	System.out.println("Name in player class: "+players.get(name).getName());
                 	
                 	
-                	List<Player> playerList = new ArrayList<>();
+                	ArrayList<Player> playerList = new ArrayList<Player>();
                 	for (String i: players.keySet()) {
                 		playerList.add(players.get(i));
                 	}
@@ -97,7 +97,7 @@ public class XTankServer
                     	
                     	//debugging test: try to send string to client
                     	//o.writeObject(players);
-                    	o.writeObject(playerList);
+                    	o.writeObject(playerList.get(0));
                     	o.flush();
                     	o.writeInt(-1);
     					//o.writeInt(ycoord);

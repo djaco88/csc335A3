@@ -204,13 +204,18 @@ public class XTankUI
 				if (in.available() > 0)
 				{
 					System.out.println("here a");
-					String test;
+					int temp = in.readInt();
+					Player test;
 					try {
 						System.out.println("here b");
-						test = (String) in.readObject();
+						Object obj =  in.readObject();
+						System.out.println("here c");
+						System.out.println(obj.getClass());
+						//ArrayList<Player> playerList =(ArrayList<Player>) obj;
+						test = (Player) obj;
+						System.out.println("Success! name of first player is: " + test.getName());
 						//players = (Hashtable<String, Player>) in.readObject();
 						System.out.println("Test: "+test);
-						System.out.println("here c");
 					} catch (ClassNotFoundException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -226,7 +231,7 @@ public class XTankUI
 			}				
             display.timerExec(150, this);
 		}
-	};	
+	};		
 }
 
 

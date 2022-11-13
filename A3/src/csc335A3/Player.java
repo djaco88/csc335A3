@@ -4,6 +4,7 @@ import java.util.Random;
 import java.io.Serializable;
 
 public class Player implements Serializable{
+	private static final long serialVersionUID = -3157843573077004575L;
 	private String name;
 	private Tank tank;
 	
