@@ -27,6 +27,7 @@ public class XTankUI
 
 	private Canvas canvas;
 	private Display display;
+	private Boarders boarder;
 	
 	ObjectInputStream in; 
 	ObjectOutputStream out;
@@ -47,6 +48,26 @@ public class XTankUI
 		shell.setLayout(new FillLayout());
 		shell.setSize(1200,800);
 		canvas = new Canvas(shell, SWT.COLOR_BLACK);
+		
+		
+		//Border
+		canvas.addPaintListener(event -> {
+			boarder = new Boarders(1200, 800, 5);
+			Device device = Display.getCurrent();
+			Color c = new Color(device, 48, 25, 52);
+			//event.gc.setBackground(c);
+			event.gc.setLineWidth(5);
+			event.gc.setBackground(c);
+			int b [] = boarder.top();
+			event.gc.drawLine(b[0], b[1], b[2], b[3]);
+			b = boarder.bottom();
+			event.gc.setLineWidth(5);
+			event.gc.drawLine(b[0], b[1], b[2], b[3]);
+			b = boarder.left();
+			event.gc.drawLine(b[0], b[1], b[2], b[3]);
+			b = boarder.right();
+			event.gc.drawLine(b[0], b[1], b[2], b[3]);
+		});
 		
 		//Create the tank coords
 		//TankMovement tankMove = new TankMovement(x, y, canvas, shell);
