@@ -205,24 +205,26 @@ public class XTankUI
 				{
 					System.out.println("here a");
 					int temp = in.readInt();
-					Player test;
+					ArrayList<Player> playerList;
 					try {
 						System.out.println("here b");
 						Object obj =  in.readObject();
 						System.out.println("here c");
 						System.out.println(obj.getClass());
 						//ArrayList<Player> playerList =(ArrayList<Player>) obj;
-						test = (Player) obj;
-						System.out.println("Success! name of first player is: " + test.getName());
-						//players = (Hashtable<String, Player>) in.readObject();
-						System.out.println("Test: "+test);
+						playerList = (ArrayList<Player>) obj;
+						
+						//This will link all players to this UI
+						//players = playerList;
+						
+						System.out.println("Success! name of first player is: " + playerList.get(0).getName());
 					} catch (ClassNotFoundException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 					y = in.readInt();
 					//x = in.readInt();
-					System.out.println("y = " + y);
+					//System.out.println("y = " + y);
 					canvas.redraw();
 				}
 			}
