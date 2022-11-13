@@ -4,10 +4,12 @@ public class Wall {
 	private int length;
 	private int width;
 	private int[] coordinates;
+	private boolean vertical;
 	
-	public Wall(int l, int w, int[]coordinates) {
+	public Wall(int l, int[]coordinates, boolean vertical) {
+		this.setVertical(vertical);
 		this.setLength(l);
-		this.setWidth(w);
+		this.setWidth(1);
 		this.setCoordinates(coordinates);
 	}
 
@@ -34,5 +36,14 @@ public class Wall {
 	public void setCoordinates(int[] coordinates) {
 		this.coordinates = coordinates;
 	}
+
+	public boolean isVertical() {
+		return vertical;
+	}
+
+	public void setVertical(boolean vertical) {
+		this.vertical = vertical;
+	}
+	
 	
 }

@@ -14,6 +14,7 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.util.ArrayList;
 import java.util.Hashtable;
+import java.util.List;
 
 /**
  * When a client connects, a new thread is started to handle it.
@@ -81,14 +82,24 @@ public class XTankServer
                 	System.out.println("Name in player class: "+players.get(name).getName());
                 	
                 	
-                	//System.out.println(" xcoord" + xcoord);
+                	List<Player> playerList = new ArrayList<>();
+                	for (String i: players.keySet()) {
+                		playerList.add(players.get(i));
+                	}
+                	
                 	for (ObjectOutputStream o: sq)
                 	{
                     	System.out.println("o = " + o);
                     	
+                    	o.writeInt(-2);
+                    	o.flush();
+                    	o.reset();
+                    	
                     	//debugging test: try to send string to client
                     	//o.writeObject(players);
-                    	o.writeObject("THIS IS A TEST");
+                    	o.writeObject(playerList);
+                    	o.flush();
+                    	o.writeInt(-1);
     					//o.writeInt(ycoord);
                         o.flush();
     					//o.writeInt(xcoord);
