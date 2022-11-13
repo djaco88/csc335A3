@@ -82,9 +82,18 @@ public class XTankServer
                 	String name = socket.getRemoteSocketAddress().toString();
                 	if (!players.containsKey(name)) {
                 		players.put(name, new Player(name));
+                		int index = (players.size()-1)%10;
+                		int[] xY = startingPoints[index];
+                		players.get(name).getTank().getMove().setX(xY[0]);
+                		players.get(name).getTank().getMove().setY(xY[1]);
+                		obOut.writeObject(name);
+                		obOut.flush();
+                		obOut.writeObject(players.get(name));
+                		obOut.flush();
+                	} else {
+                		players.get(name).getTank().getMove().setX(coords[0]);
+                		players.get(name).getTank().getMove().setY(coords[1]);
                 	}
-                	players.get(name).getTank().getMove().setX(coords[0]);
-                	players.get(name).getTank().getMove().setY(coords[1]);
                 	
                 	//debug code
                 	System.out.println("Name in player class: "+players.get(name).getName());
@@ -120,7 +129,8 @@ public class XTankServer
             finally 
             {
                 try { 
-
+                	String name = socket.getRemoteSocketAddress().toString();
+                	players.remove(name);
                     System.out.println("Closed: " + socket);
                     int index = sockets.indexOf(socket);
                     sockets.remove(index);
