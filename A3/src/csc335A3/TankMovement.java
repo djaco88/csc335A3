@@ -1,3 +1,5 @@
+//Quinn Jones 
+
 package csc335A3;
 
 import java.io.Serializable;
@@ -10,19 +12,17 @@ import org.eclipse.swt.widgets.Shell;
 public class TankMovement implements Serializable{
 	private static final long serialVersionUID = -3251434859338361504L;
 	
-	public int x;
-	public int y; 
-	public int recWidth;
-	public int recHeight;
-	public int lineWidth;
-	public int lineHeight;
+	private int x;
+	private int y; 
+	private int recWidth;
+	private int recHeight;
+	private int lineWidth;
+	private int lineHeight;
 	private int directionRight = 10;
 	private int directionLeft = -10;
 	private int directionUp = -10;
 	private int directionDown = 10;
-	public String rotation = "up";
-	Canvas canvas;
-	Shell shell;
+	private String rotation = "up";
 	
 	TankMovement(int x, int y){
 		this.x = x;
