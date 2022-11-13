@@ -53,18 +53,40 @@ public class XTankUI
 		//Tanks
 		canvas.addPaintListener(event -> {
 			for(int i = 0; i < players.size(); i++) {
-			event.gc.fillRectangle(canvas.getBounds());
-			Device device = Display.getCurrent();
-			int rbg[] = players.get(i).getTank().getModel().getRBG();
-			Color c = new Color(device, rbg[0],rbg[1],rbg[2]);
-				//event.gc.setBackground(shell.getDisplay().getSystemColor(SWT.COLOR_DARK_GREEN));
-			event.gc.setBackground(c);
-			event.gc.fillRectangle(players.get(i).getTank().getMove().getX(), players.get(i).getTank().getMove().getY(), 40, 90);
-			event.gc.setBackground(shell.getDisplay().getSystemColor(SWT.COLOR_BLACK));
-			event.gc.fillOval(players.get(i).getTank().getMove().getX(), players.get(i).getTank().getMove().getY()+20, 40, 40);
-			event.gc.setLineWidth(3);
-			event.gc.drawLine(players.get(i).getTank().getMove().getX()+20, players.get(i).getTank().getMove().getY()+20,
-						      players.get(i).getTank().getMove().getX()+20, players.get(i).getTank().getMove().getY()-10);
+				if(players.get(i).getTank().getOrientation() == "up" || players.get(i).getTank().getOrientation() == "down") {
+					event.gc.fillRectangle(canvas.getBounds());
+					Device device = Display.getCurrent();
+					int rbg[] = players.get(i).getTank().getModel().getRBG();
+					Color c = new Color(device, rbg[0],rbg[1],rbg[2]);
+					//event.gc.setBackground(shell.getDisplay().getSystemColor(SWT.COLOR_DARK_GREEN));
+					event.gc.setBackground(c);
+					event.gc.fillRectangle(players.get(i).getTank().getMove().getX(), players.get(i).getTank().getMove().getY(),
+								players.get(i).getTank().getMove().getRecWidth(), players.get(i).getTank().getMove().getRecHeight());
+					event.gc.setBackground(shell.getDisplay().getSystemColor(SWT.COLOR_BLACK));
+					event.gc.fillOval(players.get(i).getTank().getMove().getX(),players.get(i).getTank().getMove().getY() + players.get(i).getTank().getMove().getLineWidth(), players.get(i).getTank().getMove().getRecWidth(), players.get(i).getTank().getMove().getRecWidth());
+					event.gc.setLineWidth(3);
+					event.gc.drawLine(players.get(i).getTank().getMove().getX()+players.get(i).getTank().getMove().getLineWidth(), players.get(i).getTank().getMove().getY()
+							  + players.get(i).getTank().getMove().getLineWidth(),
+						      players.get(i).getTank().getMove().getX()+players.get(i).getTank().getMove().getLineWidth(), players.get(i).getTank().getMove().getY()
+						      + players.get(i).getTank().getMove().getLineHeight());
+				}
+				else {
+					event.gc.fillRectangle(canvas.getBounds());
+					Device device = Display.getCurrent();
+					int rbg[] = players.get(i).getTank().getModel().getRBG();
+					Color c = new Color(device, rbg[0],rbg[1],rbg[2]);
+					//event.gc.setBackground(shell.getDisplay().getSystemColor(SWT.COLOR_DARK_GREEN));
+					event.gc.setBackground(c);
+					event.gc.fillRectangle(players.get(i).getTank().getMove().getX(), players.get(i).getTank().getMove().getY(),
+								players.get(i).getTank().getMove().getRecWidth(), players.get(i).getTank().getMove().getRecHeight());
+					event.gc.setBackground(shell.getDisplay().getSystemColor(SWT.COLOR_BLACK));
+					event.gc.fillOval(players.get(i).getTank().getMove().getX(),players.get(i).getTank().getMove().getY() + players.get(i).getTank().getMove().getLineHeight(), players.get(i).getTank().getMove().getRecHeight(), players.get(i).getTank().getMove().getRecHeight());
+					event.gc.setLineWidth(3);
+					event.gc.drawLine(players.get(i).getTank().getMove().getX()+players.get(i).getTank().getMove().getLineHeight(),
+							players.get(i).getTank().getMove().getY() + players.get(i).getTank().getMove().getLineHeight(),
+						      players.get(i).getTank().getMove().getX()+ players.get(i).getTank().getMove().getLineHeight(),
+						      players.get(i).getTank().getMove().getY() + players.get(i).getTank().getMove().getLineWidth());
+				}
 			}
 		});	
 

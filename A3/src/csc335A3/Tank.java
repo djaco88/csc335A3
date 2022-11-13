@@ -13,7 +13,7 @@ public class Tank {
 	private TankMovement move;
 	// hitpoints/armor
 	private int hP;
-	private int[] coords;
+	//private int[] coords;
 	private String orientation;
 	
 	// TODO: make weapons class and add a variable here to store it
@@ -24,8 +24,8 @@ public class Tank {
 		this.userName = user;
 		//start with up orientation
 		this.orientation = "up";
-		int[] temp = {x,y};
-		this.setCoords(temp);
+		//int[] temp = {x,y};
+		//this.setCoords(temp);
 	}
 	
 	//Getters and Setters
@@ -46,14 +46,6 @@ public class Tank {
 	}
 	public String getOrientation() {
 		return this.orientation;
-	}
-
-	public int[] getCoords() {
-		return coords;
-	}
-
-	public void setCoords(int[] coords) {
-		this.coords = coords;
 	}
 
 	public int gethP() {
