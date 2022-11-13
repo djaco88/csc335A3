@@ -10,6 +10,7 @@ import org.eclipse.swt.widgets.Canvas;
 import org.eclipse.swt.widgets.Shell;
 
 public class TankMovement implements Serializable{
+	
 	private static final long serialVersionUID = -3251434859338361504L;
 	
 	private int x;
@@ -182,6 +183,7 @@ public class TankMovement implements Serializable{
 		lineWidth = 10;
 		lineHeight = -20;
 	}
+	
 	
 	void flipRight() {
 		if(rotation == "up") {
