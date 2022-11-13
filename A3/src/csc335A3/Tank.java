@@ -3,9 +3,13 @@
  */
 package csc335A3;
 
+import java.io.Serializable;
+
 import org.eclipse.swt.SWT;
 
-public class Tank {
+public class Tank implements Serializable{
+	
+	private static final long serialVersionUID = -460955521901379562L;
 	
 	private String userName;
 	private TankModel model;
