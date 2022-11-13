@@ -161,7 +161,7 @@ public class TankMovement implements Serializable{
 		recHeight = -90;
 		recWidth = -40;
 		lineWidth = -20;
-		lineHeight = +10;
+		lineHeight = 10;
 	}
 	
 	void flipLeft() {
@@ -179,7 +179,7 @@ public class TankMovement implements Serializable{
 		}
 		recHeight = -40;
 		recWidth = 90;
-		lineWidth = -10;
+		lineWidth = 10;
 		lineHeight = -20;
 	}
 	
@@ -198,7 +198,7 @@ public class TankMovement implements Serializable{
 		}
 		recHeight = 40;
 		recWidth = -90;
-		lineWidth = 10;
+		lineWidth = -10;
 		lineHeight = 20;
 	}
 }
