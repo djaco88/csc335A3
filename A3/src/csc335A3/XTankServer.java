@@ -91,18 +91,17 @@ public class XTankServer
                 	{
                     	System.out.println("o = " + o);
                     	
-                    	//o.writeInt(-2);
-                    	//o.flush();
-                    	//o.reset();
+                    	o.writeInt(-2);
+                    	o.flush();
+                    	o.reset();
                     	
                     	//debugging test: try to send string to client
                     	//o.writeObject(players);
-                    	//o.writeObject(playerList.get(0));
-                    	//o.flush();
-                    	//o.writeInt(-1);
+                    	o.writeObject(playerList);
+                    	o.flush();
+                    	o.writeInt(-1);
     					//o.writeInt(ycoord);
-                        //o.flush();
-    					//o.writeInt(xcoord);
+                        o.flush();
                 	}
                 }
             } 
