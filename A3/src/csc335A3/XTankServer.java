@@ -91,7 +91,7 @@ public class XTankServer
                 	{
                     	System.out.println("o = " + o);
                     	
-                    	o.writeInt(-2);
+                    	//o.writeInt(-2);
                     	o.flush();
                     	o.reset();
                     	
