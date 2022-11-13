@@ -1,5 +1,5 @@
 package csc335A3;
-
+//Quinn Jones, Jake Davis
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.*;
 import org.eclipse.swt.graphics.*;
