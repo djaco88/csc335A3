@@ -166,7 +166,16 @@ public class XTankUI
 					curPlayer.getTank().getMove().action(e);
 				}
 				try {
-					int[] temp = {curPlayer.getTank().getMove().getX(),curPlayer.getTank().getMove().getY()};
+					int ori = 1;
+					if (curPlayer.getTank().getMove().getDirection().equals("right")) {
+						ori = 2;
+					} else if (curPlayer.getTank().getMove().getDirection().equals("down")) {
+						ori = 3;
+					} else if (curPlayer.getTank().getMove().getDirection().equals("left")) {
+						ori = 4;
+					}
+					
+					int[] temp = {curPlayer.getTank().getMove().getX(),curPlayer.getTank().getMove().getY(), ori};
 					out.writeObject(temp);
 					out.flush();
 					System.out.println("here1");
@@ -185,7 +194,7 @@ public class XTankUI
 
 		try {
 
-			int[] temp = {-1,-1};
+			int[] temp = {-1,-1,-1};
 			out.writeObject(temp);
 			out.flush();
 			try {
