@@ -1,4 +1,4 @@
-/* Author:
+/* Author:Jake Davis
  * Purpose:
  */
 package csc335A3;

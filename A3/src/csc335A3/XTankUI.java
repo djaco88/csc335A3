@@ -89,7 +89,6 @@ public class XTankUI
 					Device device = Display.getCurrent();
 					int rbg[] = players.get(i).getTank().getModel().getRBG();
 					Color c = new Color(device, rbg[0],rbg[1],rbg[2]);
-					//event.gc.setBackground(shell.getDisplay().getSystemColor(SWT.COLOR_DARK_GREEN));
 					event.gc.setBackground(c);
 					event.gc.fillRectangle(players.get(i).getTank().getMove().getX(), players.get(i).getTank().getMove().getY(),
 								players.get(i).getTank().getMove().getRecWidth(), players.get(i).getTank().getMove().getRecHeight());
@@ -100,28 +99,7 @@ public class XTankUI
 							  + players.get(i).getTank().getMove().getLineWidth(),
 						      players.get(i).getTank().getMove().getX()+players.get(i).getTank().getMove().getLineWidth(), players.get(i).getTank().getMove().getY()
 						      + players.get(i).getTank().getMove().getLineHeight());
-				
-				//}
-					
-				//else if(players.get(i).getTank().getOrientation().equals("left") || players.get(i).getTank().getOrientation().equals("right")) {
-					//event.gc.fillRectangle(canvas.getBounds());
-					//Device device = Display.getCurrent();
-					//int rbg[] = players.get(i).getTank().getModel().getRBG();
-					//Color c = new Color(device, rbg[0],rbg[1],rbg[2]);
-					//event.gc.setBackground(shell.getDisplay().getSystemColor(SWT.COLOR_DARK_GREEN));
-					//event.gc.setBackground(c);
-					//event.gc.fillRectangle(players.get(i).getTank().getMove().getX(), players.get(i).getTank().getMove().getY(),
-								//players.get(i).getTank().getMove().getRecWidth(), players.get(i).getTank().getMove().getRecHeight());
-					//event.gc.setBackground(shell.getDisplay().getSystemColor(SWT.COLOR_BLACK));
-					//event.gc.fillOval(players.get(i).getTank().getMove().getX() -  players.get(i).getTank().getMove().getLineHeight(),  players.get(i).getTank().getMove().getY(), players.get(i).getTank().getMove().getRecHeight(), players.get(i).getTank().getMove().getRecHeight());	
-					//event.gc.setLineWidth(3);
-
-					/*event.gc.drawLine(players.get(i).getTank().getMove().getX() + players.get(i).getTank().getMove().getLineHeight(),
-							players.get(i).getTank().getMove().getY() + players.get(i).getTank().getMove().getLineHeight(),
-						      players.get(i).getTank().getMove().getX()+ players.get(i).getTank().getMove().getLineWidth(),
-						      players.get(i).getTank().getMove().getY() + players.get(i).getTank().getMove().getLineHeight());
-				*/
-				//}
+			
 			}
 		});	
 

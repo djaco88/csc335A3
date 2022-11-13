@@ -1,5 +1,5 @@
 package csc335A3;
-
+//Jake Davis
 public class Collision {
 	
 	public boolean tankOnTank(Tank A, Tank B) {
