@@ -75,9 +75,17 @@ public class XTankServer
                 	coords = (int[]) obIn.readObject();
                 	int x = coords[0];
                 	int y = coords[1];
-                	//String orientation = (String) obIn.readObject();
+                	int z = coords[2];
+                	String ori ="up";
+                	if (coords[2] == 2) {
+                		ori = "right";
+                	} else if (coords[2] == 3) {
+                		ori = "down";
+                	} else if (coords[2] == 4) {
+                		ori = "left";
+                	}
                 	
-                	System.out.println("coords = " + x + ", " + y);
+                	System.out.println("coords = " + x + ", " + y + " "+ ori);
                 	
                 	//add players to hashtable
                 	String name = socket.getRemoteSocketAddress().toString();
@@ -94,7 +102,7 @@ public class XTankServer
                 	} else {
                 		players.get(name).getTank().getMove().setX(coords[0]);
                 		players.get(name).getTank().getMove().setY(coords[1]);
-                		//players.get(name).getTank().setOrientation(orientation);
+                		players.get(name).getTank().setOrientation(ori);
                 	}
                 	
                 	//debug code
@@ -113,13 +121,9 @@ public class XTankServer
                     	o.writeInt(-2);
                     	o.flush();
                     	o.reset();
-                    	
-                    	//debugging test: try to send string to client
-                    	//o.writeObject(players);
                     	o.writeObject(playerList);
                     	o.flush();
                     	o.writeInt(-1);
-    					//o.writeInt(ycoord);
                         o.flush();
                 	}
                 }
