@@ -169,7 +169,10 @@ public class XTankUI
 					int[] temp = {curPlayer.getTank().getMove().getX(),curPlayer.getTank().getMove().getY()};
 					out.writeObject(temp);
 					out.flush();
-					//out.writeInt(x);
+					System.out.println("here1");
+					//out.writeObject(curPlayer.getTank().getOrientation());
+					//System.out.println("here1");
+					//out.flush();
 				}
 				catch(IOException ex) {
 					System.out.println("The server did not respond (write KL).");

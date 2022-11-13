@@ -75,6 +75,7 @@ public class XTankServer
                 	coords = (int[]) obIn.readObject();
                 	int x = coords[0];
                 	int y = coords[1];
+                	//String orientation = (String) obIn.readObject();
                 	
                 	System.out.println("coords = " + x + ", " + y);
                 	
@@ -93,6 +94,7 @@ public class XTankServer
                 	} else {
                 		players.get(name).getTank().getMove().setX(coords[0]);
                 		players.get(name).getTank().getMove().setY(coords[1]);
+                		//players.get(name).getTank().setOrientation(orientation);
                 	}
                 	
                 	//debug code
