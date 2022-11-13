@@ -5,7 +5,9 @@ X-Tank
 
 TO RUN: run XTankServer.java, wait until its running and then run XTank.java. Multiple Xtank.javas can be run, the server can support multiple clients
 
-NOTE: the switch we made to have the clients rely solely on the data stored on the server did not go smoothly. The clients only display (And update) the first tank created. All clients have access to eachothers data from the server, but the drawing on the canvas did not work properly.
+NOTE1: UML diagram is huge, please download it to view it well.
+
+NOTE2: the switch we made to have the clients rely solely on the data stored on the server did not go smoothly. The clients only display (And update) the first tank created. All clients have access to eachothers data from the server, but the drawing on the canvas did not work properly.
 
 
 Learning Experience:
