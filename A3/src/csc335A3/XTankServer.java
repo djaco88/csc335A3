@@ -100,6 +100,7 @@ public class XTankServer
                 		obOut.writeObject(players.get(name));
                 		obOut.flush();
                 	} else {
+                		// update values
                 		players.get(name).getTank().getMove().setX(coords[0]);
                 		players.get(name).getTank().getMove().setY(coords[1]);
                 		players.get(name).getTank().setOrientation(ori);
